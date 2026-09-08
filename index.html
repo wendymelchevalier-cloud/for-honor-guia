@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>For Honor - Guia</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /* =========================
+           FUNDO FORA DO "CELULAR"
+        ========================== */
+
+        body {
+            width: 100%;
+            min-height: 100dvh;
+
+            background: #000;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           TELA PRINCIPAL DO APP
+           proporção 9:16
+        ========================== */
+
+        .app {
+            position: relative;
+
+            width: min(
+                100vw,
+                calc(100dvh * 9 / 16)
+            );
+
+            aspect-ratio: 9 / 16;
+
+            max-height: 100dvh;
+
+            overflow: hidden;
+
+            background-image: url("assets/fundo.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+
+        /* =========================
+           LOGO FOR HONOR
+        ========================== */
+
+        .logo-wrap {
+            position: absolute;
+
+            top: 9.2%;
+            left: 15%;
+
+            width: 70%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            z-index: 2;
+
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .logo {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+
+        .logo-credit {
+            margin-top: -1%;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(10px, 1.55vh, 14px);
+
+            font-style: italic;
+            font-weight: 500;
+
+            color: #ffffff;
+
+            letter-spacing: 0.03em;
+
+            text-shadow:
+                0 1px 2px #000,
+                0 0 4px rgba(0, 0, 0, 0.95);
+
+            opacity: 0.95;
+        }
+
+
+        /* =========================
+           ÁREA DOS BOTÕES
+        ========================== */
+
+        .menu {
+            position: absolute;
+
+            top: 27.5%;
+            left: 5%;
+
+            width: 90%;
+
+            /* reserva espaço embaixo para o rodapé */
+            bottom: 11.5%;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, minmax(0, 1fr));
+
+            column-gap: 4%;
+            row-gap: 0.5%;
+
+            z-index: 3;
+        }
+
+
+        /* =========================
+           CADA BOTÃO
+        ========================== */
+
+        .menu-button {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: flex-start;
+            align-items: center;
+
+            text-decoration: none;
+
+            color: #efd29a;
+
+            -webkit-tap-highlight-color: transparent;
+
+            transition:
+                transform 0.15s ease;
+        }
+
+
+        /* =========================
+           IMAGEM DO BOTÃO
+        ========================== */
+
+        .menu-button img {
+            display: block;
+
+            height: 56%;
+            width: auto;
+
+            max-width: 78%;
+
+            object-fit: contain;
+
+            flex-shrink: 0;
+
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+
+            transition:
+                filter 0.15s ease;
+        }
+
+
+        /* =========================
+           NOME DO BOTÃO
+        ========================== */
+
+        .button-title {
+            width: 100%;
+
+            height: 2.3em;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 1%;
+
+            text-align: center;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(
+                9px,
+                1.65vh,
+                15px
+            );
+
+            font-weight: bold;
+
+            line-height: 1.03;
+
+            letter-spacing: 0.04em;
+
+            text-transform: uppercase;
+
+            color: #f0d39a;
+
+            text-shadow:
+                0 2px 2px #000,
+                0 0 5px #000;
+
+            text-wrap: balance;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =========================
+           TOQUE / CLIQUE
+        ========================== */
+
+        .menu-button:active {
+            transform: scale(0.96);
+        }
+
+
+        .menu-button:active img {
+            filter:
+                brightness(1.18)
+                drop-shadow(
+                    0 0 8px
+                    rgba(255, 174, 55, 0.8)
+                );
+        }
+
+
+        /* =========================
+           EFEITO NO COMPUTADOR
+        ========================== */
+
+        @media (hover: hover) {
+
+            .menu-button:hover {
+                transform: scale(1.025);
+            }
+
+
+            .menu-button:hover img {
+                filter:
+                    brightness(1.12)
+                    drop-shadow(
+                        0 0 7px
+                        rgba(255, 174, 55, 0.65)
+                    );
+            }
+
+        }
+
+
+        /* =========================
+           EVITA SELEÇÃO ACIDENTAL
+        ========================== */
+
+        img {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .logo-credit {
+            margin-top: -1%;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: clamp(
+                11px,
+                1.55vh,
+                15px
+            );
+
+            font-style: italic;
+            font-weight: 500;
+
+            color: #fff;
+
+            letter-spacing: 0.02em;
+
+            text-shadow:
+                0 1px 1px rgba(0, 0, 0, 0.95);
+        }
+
+        /* =========================
+        NOTA DE RODAPÉ
+        ========================== */
+
+        .footer-note {
+            position: absolute;
+
+            bottom: 1.2%;
+            left: 5%;
+
+            width: 90%;
+
+            padding: 4px 6px;
+
+            text-align: center;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: clamp(
+                9px,
+                1.35vh,
+                12px
+            );
+
+            line-height: 1.0;
+
+            /* melhor para textos maiores */
+            font-style: normal;
+            font-weight: 400;
+
+            color: rgba(255, 255, 255, 0.95);
+
+            /* sombra bem mais leve */
+            text-shadow:
+                0 1px 1px rgba(0, 0, 0, 0.95);
+
+            z-index: 4;
+        }
+        
+    </style>
+</head>
+
+
+<body>
+
+    <main class="app">
+
+
+        <!-- =====================
+             LOGO
+        ====================== -->
+
+    <div class="logo-wrap">
+        <img
+            src="assets/logo-for-honor.png"
+            class="logo"
+            alt="For Honor"
+        >
+
+        <div class="logo-credit">
+            By Glitch & Agatha_NoSkill
+        </div>
+    </div>
+
+
+
+        <!-- =====================
+             MENU PRINCIPAL
+        ====================== -->
+
+        <nav class="menu">
+
+
+            <!-- =====================
+                 GUIA DO HERÓI
+            ====================== -->
+
+            <a
+                href="guia-herois.html"
+                class="menu-button"
+            >
+
+                <img
+                    src="assets/btn-guia-herois.png"
+                    alt="Guia do Herói"
+                >
+
+                <span class="button-title">
+                    Guia do Herói
+                </span>
+
+            </a>
+
+
+
+            <!-- =====================
+                 HERÓI RECOMENDADO
+            ====================== -->
+
+            <a
+                href="heroi-recomendado.html"
+                class="menu-button"
+            >
+
+                <img
+                    src="assets/btn-heroi-recomendado.png"
+                    alt="Herói Recomendado"
+                >
+
+                <span class="button-title">
+                    Herói<br>
+                    Recomendado
+                </span>
+
+            </a>
+
+
+
+            <!-- =====================
+                 MODOS DE JOGO
+            ====================== -->
+
+            <a
+                href="modos-jogo.html"
+                class="menu-button"
+            >
+
+                <img
+                    src="assets/btn-modos-jogo.png"
+                    alt="Modos de Jogo"
+                >
+
+                <span class="button-title">
+                    Modos de Jogo
+                </span>
+
+            </a>
+
+
+
+            <!-- =====================
+                 ANOTAÇÕES
+            ====================== -->
+
+            <a
+                href="anotacoes.html"
+                class="menu-button"
+            >
+
+                <img
+                    src="assets/btn-anotacoes.png"
+                    alt="Anotações"
+                >
+
+                <span class="button-title">
+                    Anotações
+                </span>
+
+            </a>
+
+
+
+            <!-- =====================
+                 GLOSSÁRIO
+            ====================== -->
+
+            <a
+                href="glossario.html"
+                class="menu-button"
+            >
+
+                <img
+                    src="assets/btn-glossario.png"
+                    alt="Glossário"
+                >
+
+                <span class="button-title">
+                    Glossário
+                </span>
+
+            </a>
+
+
+
+            <!-- =====================
+                 GUIA DE FUNCIONAMENTO
+            ====================== -->
+
+            <a
+                href="guia-funcionamento.html"
+                class="menu-button"
+            >
+
+                <img
+                    src="assets/btn-guia-funcionamento.png"
+                    alt="Guia de Funcionamento"
+                >
+
+                <span class="button-title">
+                    Guia de<br>
+                    Funcionamento
+                </span>
+
+            </a>
+
+
+        </nav>
+
+        <footer class="footer-note">
+        Este é um site não oficial que eu fiz apenas para
+        praticar programação, ele foi criado
+        apenas para uso pessoal onde coloco minhas anotações pessoais
+        sobre For Honor, e compartilho elas com amigos, feito apenas para celular.
+        Se você chegou aqui por acaso, apenas ignore.
+        For Honor e suas propriedades pertecem a Ubisoft.
+        Este site NÃO POSSUI VÍNCULO oficial COM A UBISOFT.
+        Para informações oficiais sobre For Honor,
+        vá ao site oficial de For Honor da Ubisoft. <br> 
+    <a
+        href="LINK-DO-FOR-HONOR-HUB"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        FOR HONOR HUB
+    </a>.
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
