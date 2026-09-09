@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
-
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -12,19 +10,17 @@
     <title>Guia Pessoal FH</title>
 
     <!-- =========================
-        FAVICON
+         FAVICON
     ========================== -->
-
     <link
         rel="icon"
         type="image/png"
         href="assets/favicon.png"
-     >
+    >
 
     <!-- =========================
          PRELOAD DAS IMAGENS
     ========================== -->
-
     <link
         rel="preload"
         href="assets/btn-guia-herois.webp"
@@ -67,9 +63,7 @@
         type="image/webp"
     >
 
-
     <style>
-
         /* =========================
            RESET
         ========================== */
@@ -85,7 +79,6 @@
             width: 100%;
             height: 100%;
         }
-
 
         /* =========================
            FUNDO FORA DO "CELULAR"
@@ -104,7 +97,6 @@
             overflow: hidden;
         }
 
-
         /* =========================
            TELA PRINCIPAL DO APP
            proporção 9:16
@@ -119,9 +111,7 @@
             );
 
             aspect-ratio: 9 / 16;
-
             max-height: 100dvh;
-
             overflow: hidden;
 
             background-image: url("assets/fundo.webp");
@@ -130,16 +120,13 @@
             background-repeat: no-repeat;
         }
 
-
         /* =========================
            LOGO FOR HONOR
         ========================== */
 
         .logo-wrap {
             position: absolute;
-
             top: 6%;
-
             left: 8px;
             right: 8px;
 
@@ -167,7 +154,6 @@
 
         .logo-credit {
             margin-top: -1%;
-
             transform: translateY(-2px);
 
             font-family:
@@ -185,13 +171,11 @@
             font-weight: 500;
 
             color: #fff;
-
             letter-spacing: 0.02em;
 
             text-shadow:
                 0 1px 1px rgba(0, 0, 0, 0.95);
         }
-
 
         /* =========================
            ÁREA DOS BOTÕES
@@ -199,26 +183,20 @@
 
         .menu {
             position: absolute;
-
             top: 27.5%;
             left: 5%;
+            bottom: 11.5%;
 
             width: 90%;
 
-            /* reserva espaço embaixo para o rodapé */
-            bottom: 11.5%;
-
             display: grid;
-
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(3, minmax(0, 1fr));
-
             column-gap: 4%;
             row-gap: 0.5%;
 
             z-index: 3;
         }
-
 
         /* =========================
            CADA BOTÃO
@@ -230,12 +208,10 @@
 
             display: flex;
             flex-direction: column;
-
             justify-content: flex-start;
             align-items: center;
 
             text-decoration: none;
-
             color: #efd29a;
 
             -webkit-tap-highlight-color: transparent;
@@ -243,7 +219,6 @@
             transition:
                 transform 0.15s ease;
         }
-
 
         /* =========================
            IMAGEM DO BOTÃO
@@ -254,11 +229,9 @@
 
             height: 56%;
             width: auto;
-
             max-width: 78%;
 
             object-fit: contain;
-
             flex-shrink: 0;
 
             user-select: none;
@@ -269,14 +242,12 @@
                 filter 0.15s ease;
         }
 
-
         /* =========================
            NOME DO BOTÃO
         ========================== */
 
         .button-title {
             width: 100%;
-
             height: 2.3em;
 
             display: flex;
@@ -299,11 +270,8 @@
             );
 
             font-weight: bold;
-
             line-height: 1.03;
-
             letter-spacing: 0.04em;
-
             text-transform: uppercase;
 
             color: #f0d39a;
@@ -313,10 +281,8 @@
                 0 0 5px #000;
 
             text-wrap: balance;
-
             flex-shrink: 0;
         }
-
 
         /* =========================
            TOQUE / CLIQUE
@@ -325,7 +291,6 @@
         .menu-button:active {
             transform: scale(0.96);
         }
-
 
         .menu-button:active img {
             filter:
@@ -336,17 +301,14 @@
                 );
         }
 
-
         /* =========================
            EFEITO NO COMPUTADOR
         ========================== */
 
         @media (hover: hover) {
-
             .menu-button:hover {
                 transform: scale(1.025);
             }
-
 
             .menu-button:hover img {
                 filter:
@@ -356,31 +318,18 @@
                         rgba(255, 174, 55, 0.65)
                     );
             }
-
-        }
-
-
-        /* =========================
-           EVITA SELEÇÃO ACIDENTAL
-        ========================== */
-
-        img {
-            -webkit-user-select: none;
-            user-select: none;
         }
 
         /* =========================
-        NOTA DE RODAPÉ
+           NOTA DE RODAPÉ
         ========================== */
 
         .footer-note {
             position: absolute;
-
             bottom: 1.2%;
             left: 5%;
 
             width: 90%;
-
             padding: 4px 6px;
 
             text-align: center;
@@ -397,22 +346,19 @@
             );
 
             line-height: 1.0;
-
-            /* melhor para textos maiores */
             font-style: normal;
             font-weight: 400;
 
             color: rgba(255, 255, 255, 0.95);
 
-            /* sombra bem mais leve */
             text-shadow:
                 0 1px 1px rgba(0, 0, 0, 0.95);
 
             z-index: 4;
         }
-        
+
         /* =========================
-        ANIMAÇÃO DE ABERTURA
+           ANIMAÇÃO DE ABERTURA
         ========================== */
 
         .intro {
@@ -426,20 +372,29 @@
             justify-content: center;
 
             z-index: 999;
-
-            animation:
-                intro-fade-out 0.8s ease 2.7s forwards;
         }
 
+        .intro-button {
+            width: 100%;
 
-        /* Logo da abertura */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            border: 0;
+            padding: 0;
+            background: transparent;
+
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
 
         .intro-logo {
             width: 55%;
             height: auto;
 
             opacity: 0;
-
             transform: scale(0.88);
 
             filter:
@@ -449,14 +404,47 @@
                 );
 
             animation:
-                intro-logo 2.6s ease forwards;
+                intro-logo 2.6s ease forwards,
+                intro-pulse 2.2s ease-in-out 2.6s infinite;
         }
 
+        .intro-message {
+            margin-top: 18px;
 
-        /* Logo aparecendo */
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(
+                12px,
+                1.7vh,
+                16px
+            );
+
+            color: #e7cf9b;
+            letter-spacing: 0.04em;
+
+            text-shadow:
+                0 1px 2px #000,
+                0 0 6px rgba(210, 150, 60, 0.45);
+
+            opacity: 0;
+
+            animation:
+                intro-message-show 0.8s ease 1.5s forwards;
+        }
+
+        .intro.is-closing {
+            animation:
+                intro-fade-out 0.8s ease forwards;
+        }
+
+        /* =========================
+           KEYFRAMES DA ABERTURA
+        ========================== */
 
         @keyframes intro-logo {
-
             0% {
                 opacity: 0;
                 transform: scale(0.88);
@@ -470,7 +458,6 @@
 
             30% {
                 opacity: 1;
-
                 transform: scale(1);
 
                 filter:
@@ -483,7 +470,6 @@
 
             70% {
                 opacity: 1;
-
                 transform: scale(1.02);
 
                 filter:
@@ -496,7 +482,6 @@
 
             100% {
                 opacity: 1;
-
                 transform: scale(1);
 
                 filter:
@@ -508,11 +493,44 @@
             }
         }
 
+        @keyframes intro-pulse {
+            0%,
+            100% {
+                transform: scale(1);
 
-        /* Tela de abertura desaparecendo */
+                filter:
+                    brightness(1)
+                    drop-shadow(
+                        0 0 6px
+                        rgba(255, 160, 40, 0.25)
+                    );
+            }
+
+            50% {
+                transform: scale(1.035);
+
+                filter:
+                    brightness(1.15)
+                    drop-shadow(
+                        0 0 15px
+                        rgba(255, 160, 40, 0.6)
+                    );
+            }
+        }
+
+        @keyframes intro-message-show {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 0.95;
+                transform: translateY(0);
+            }
+        }
 
         @keyframes intro-fade-out {
-
             0% {
                 opacity: 1;
                 visibility: visible;
@@ -523,30 +541,26 @@
                 visibility: hidden;
                 pointer-events: none;
             }
-
         }
 
         /* =========================
-        PROTEÇÃO DAS IMAGENS
+           PROTEÇÃO DAS IMAGENS
         ========================== */
+
+        img {
+            -webkit-user-select: none;
+            user-select: none;
+        }
 
         .menu-button,
         .menu-button img,
         .logo,
         .intro-logo {
-
             -webkit-user-select: none;
             user-select: none;
-
             -webkit-user-drag: none;
-
-            /* bloqueia menu de toque prolongado no iPhone/Safari */
             -webkit-touch-callout: none;
         }
-
-
-        /* A imagem não recebe eventos diretamente.
-        O clique continua funcionando no botão <a>. */
 
         .menu-button img {
             pointer-events: none;
@@ -554,51 +568,52 @@
     </style>
 </head>
 
-
 <body>
+    <main class="app">
+        <!-- =====================
+             ABERTURA
+        ====================== -->
 
-<main class="app">
+        <div class="intro" id="intro">
+            <button
+                class="intro-button"
+                id="introButton"
+                type="button"
+                aria-label="Abrir Guia FH"
+            >
+                <img
+                    src="assets/logo-guia-intro.webp"
+                    class="intro-logo"
+                    alt="Guia FH"
+                >
 
-    <!-- =====================
-         ABERTURA
-    ====================== -->
-
-    <div class="intro">
-
-        <img
-            src="assets/logo-guia-intro.webp"
-            class="intro-logo"
-            alt="For Honor"
-        >
-
-    </div>
-
+                <span class="intro-message">
+                    Toque no emblema para abrir o guia...
+                </span>
+            </button>
+        </div>
 
         <!-- =====================
              LOGO
         ====================== -->
 
-    <div class="logo-wrap">
-        <img
-            src="assets/logo-guia-fh.png"
-            class="logo"
-            alt="For Honor"
-        >
+        <div class="logo-wrap">
+            <img
+                src="assets/logo-guia-fh.png"
+                class="logo"
+                alt="For Honor"
+            >
 
-        <div class="logo-credit">
-            By Glitch & Agatha_NoSkill
+            <div class="logo-credit">
+                By Glitch & Agatha_NoSkill
+            </div>
         </div>
-    </div>
-
-
 
         <!-- =====================
              MENU PRINCIPAL
         ====================== -->
 
         <nav class="menu">
-
-
             <!-- =====================
                  GUIA DO HERÓI
             ====================== -->
@@ -607,7 +622,6 @@
                 href="guia-herois.html"
                 class="menu-button"
             >
-
                 <img
                     src="assets/btn-guia-herois.webp"
                     alt="Guia do Herói"
@@ -616,10 +630,7 @@
                 <span class="button-title">
                     Guia do Herói
                 </span>
-
             </a>
-
-
 
             <!-- =====================
                  HERÓI RECOMENDADO
@@ -629,7 +640,6 @@
                 href="heroi-recomendado.html"
                 class="menu-button"
             >
-
                 <img
                     src="assets/btn-heroi-recomendado.webp"
                     alt="Herói Recomendado"
@@ -639,10 +649,7 @@
                     Herói<br>
                     Recomendado
                 </span>
-
             </a>
-
-
 
             <!-- =====================
                  MODOS DE JOGO
@@ -652,7 +659,6 @@
                 href="modos-jogo.html"
                 class="menu-button"
             >
-
                 <img
                     src="assets/btn-modos-jogo.webp"
                     alt="Modos de Jogo"
@@ -661,10 +667,7 @@
                 <span class="button-title">
                     Modos de Jogo
                 </span>
-
             </a>
-
-
 
             <!-- =====================
                  ANOTAÇÕES
@@ -674,7 +677,6 @@
                 href="anotacoes.html"
                 class="menu-button"
             >
-
                 <img
                     src="assets/btn-anotacoes.webp"
                     alt="Anotações"
@@ -683,10 +685,7 @@
                 <span class="button-title">
                     Anotações
                 </span>
-
             </a>
-
-
 
             <!-- =====================
                  GLOSSÁRIO
@@ -696,7 +695,6 @@
                 href="glossario.html"
                 class="menu-button"
             >
-
                 <img
                     src="assets/btn-glossario.webp"
                     alt="Glossário"
@@ -705,10 +703,7 @@
                 <span class="button-title">
                     Glossário
                 </span>
-
             </a>
-
-
 
             <!-- =====================
                  GUIA DE FUNCIONAMENTO
@@ -718,7 +713,6 @@
                 href="guia-funcionamento.html"
                 class="menu-button"
             >
-
                 <img
                     src="assets/btn-guia-funcionamento.webp"
                     alt="Guia de Funcionamento"
@@ -728,61 +722,81 @@
                     Guia de<br>
                     Funcionamento
                 </span>
-
             </a>
-
-
         </nav>
 
-        <footer class="footer-note">
-        Este é um site não oficial que eu fiz apenas para
-        praticar programação, ele foi criado
-        apenas para uso pessoal onde coloco minhas anotações pessoais
-        sobre For Honor, e compartilho elas com amigos, feito apenas para celular.
-        Se você chegou aqui por acaso, apenas ignore.
-        For Honor e suas propriedades pertecem a Ubisoft.
-        Este site NÃO POSSUI vínculo oficial com a Ubisoft.
-        Para informações oficiais sobre For Honor,
-        vá ao site oficial de For Honor da Ubisoft. <br> 
-    <a
-        href="https://forhonorinfohub.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        FOR HONOR HUB
-    </a>
-        </footer>
+        <!-- =====================
+             RODAPÉ
+        ====================== -->
 
+        <footer class="footer-note">
+            Este é um site não oficial que eu fiz apenas para
+            praticar programação, ele foi criado
+            apenas para uso pessoal onde coloco minhas anotações pessoais
+            sobre For Honor, e compartilho elas com amigos, feito apenas para celular.
+            Se você chegou aqui por acaso, apenas ignore.
+            For Honor e suas propriedades pertecem a Ubisoft.
+            Este site NÃO POSSUI vínculo oficial com a Ubisoft.
+            Para informações oficiais sobre For Honor,
+            vá ao site oficial de For Honor da Ubisoft. <br>
+            <a
+                href="https://forhonorinfohub.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                FOR HONOR HUB
+            </a>
+        </footer>
     </main>
 
-<script>
+    <script>
+        /* =========================
+           ABERTURA / TELA CHEIA
+        ========================== */
 
-    /* Impede menu de contexto nos botões e imagens */
+        const intro = document.getElementById("intro");
+        const introButton = document.getElementById("introButton");
 
-    document.addEventListener("contextmenu", function(event) {
+        introButton.addEventListener("click", async function() {
+            const pagina = document.documentElement;
 
-        if (
-            event.target.closest(".menu-button") ||
-            event.target.closest(".logo") ||
-            event.target.closest(".intro-logo")
-        ) {
-            event.preventDefault();
-        }
+            try {
+                if (pagina.requestFullscreen) {
+                    await pagina.requestFullscreen();
+                } else if (pagina.webkitRequestFullscreen) {
+                    pagina.webkitRequestFullscreen();
+                }
+            } catch (erro) {
+                /* Se o navegador não permitir tela cheia,
+                   o guia abre normalmente mesmo assim. */
+            }
 
-    });
+            intro.classList.add("is-closing");
+        });
 
+        /* =========================
+           BLOQUEIO DO MENU DE CONTEXTO
+        ========================== */
 
-    /* Impede arrastar imagens */
+        document.addEventListener("contextmenu", function(event) {
+            if (
+                event.target.closest(".menu-button") ||
+                event.target.closest(".logo") ||
+                event.target.closest(".intro-logo")
+            ) {
+                event.preventDefault();
+            }
+        });
 
-    document.addEventListener("dragstart", function(event) {
+        /* =========================
+           BLOQUEIO DE ARRASTAR IMAGENS
+        ========================== */
 
-        if (event.target.tagName === "IMG") {
-            event.preventDefault();
-        }
-
-    });
-
-</script>
+        document.addEventListener("dragstart", function(event) {
+            if (event.target.tagName === "IMG") {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
-
 </html>
