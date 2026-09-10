@@ -396,27 +396,102 @@
         }
 
         /* =========================
-        SITE ESCONDIDO DURANTE A INTRO
+        ENTRADA DO CONTEÚDO
         ========================== */
 
-        .logo-wrap,
-        .menu,
-        .footer-note {
+        /* Placa começa acima da tela */
+        .logo-wrap {
             opacity: 0;
-            visibility: hidden;
+            transform: translateY(-60px);
         }
 
+        /* Botões da coluna esquerda */
+        .menu-button:nth-child(odd) {
+            opacity: 0;
+            transform: translateX(-70px);
+        }
+
+        /* Botões da coluna direita */
+        .menu-button:nth-child(even) {
+            opacity: 0;
+            transform: translateX(70px);
+        }
+
+        /* Rodapé */
+        .footer-note {
+            opacity: 0;
+        }
+
+
         /* =========================
-        SITE LIBERADO APÓS A INTRO
+        ANIMAÇÃO APÓS A INTRO
         ========================== */
 
-        body.site-ready .logo-wrap,
-        body.site-ready .menu,
-        body.site-ready .footer-note {
-            opacity: 1;
-            visibility: visible;
+        body.site-enter .logo-wrap {
+            animation: logo-enter 0.5s ease-out forwards;
+        }
 
-            transition: opacity 0.25s ease;
+        body.site-enter .menu-button:nth-child(odd) {
+            animation: button-left-enter 0.5s ease-out forwards;
+        }
+
+        body.site-enter .menu-button:nth-child(even) {
+            animation: button-right-enter 0.5s ease-out forwards;
+        }
+
+        body.site-enter .footer-note {
+            animation: footer-enter 0.4s ease forwards;
+        }
+
+
+        /* =========================
+        KEYFRAMES
+        ========================== */
+
+        @keyframes logo-enter {
+            from {
+                opacity: 0;
+                transform: translateY(-60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes button-left-enter {
+            from {
+                opacity: 0;
+                transform: translateX(-70px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes button-right-enter {
+            from {
+                opacity: 0;
+                transform: translateX(70px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes footer-enter {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         /* =========================
@@ -717,6 +792,70 @@
                 );
             }
 
+            /* =========================
+            ANIMAÇÃO DE ENTRADA - DESKTOP
+            ========================== */
+
+            /* Placa começa acima, mantendo a centralização */
+            .logo-wrap {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-60px);
+            }
+
+            /* 3 primeiros vêm da esquerda */
+            .menu-button:nth-child(1),
+            .menu-button:nth-child(2),
+            .menu-button:nth-child(3) {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+
+            /* 3 últimos vêm da direita */
+            .menu-button:nth-child(4),
+            .menu-button:nth-child(5),
+            .menu-button:nth-child(6) {
+                opacity: 0;
+                transform: translateX(80px);
+            }
+
+
+            /* Placa desce */
+            body.site-enter .logo-wrap {
+                animation:
+                    logo-enter-desktop 0.5s ease-out forwards;
+            }
+
+            /* Primeiros 3 */
+            body.site-enter .menu-button:nth-child(1),
+            body.site-enter .menu-button:nth-child(2),
+            body.site-enter .menu-button:nth-child(3) {
+                animation:
+                    button-left-enter 0.5s ease-out forwards;
+            }
+
+            /* Últimos 3 */
+            body.site-enter .menu-button:nth-child(4),
+            body.site-enter .menu-button:nth-child(5),
+            body.site-enter .menu-button:nth-child(6) {
+                animation:
+                    button-right-enter 0.5s ease-out forwards;
+            }
+
+
+            /* Keyframe especial para a placa no desktop */
+            @keyframes logo-enter-desktop {
+
+                from {
+                    opacity: 0;
+                    transform: translateX(-50%) translateY(-60px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(0);
+                }
+
+            }
         }
     </style>
 </head>
@@ -902,19 +1041,27 @@
         ========================== */
 
         const intro = document.getElementById("intro");
+        const introStart = Date.now();
 
-        setTimeout(function() {
+        window.addEventListener("load", function() {
 
-            intro.style.animation =
-                "intro-fade-out 0.5s ease forwards";
+            const elapsed = Date.now() - introStart;
+            const remainingTime = Math.max(0, 2000 - elapsed);
 
             setTimeout(function() {
 
-                document.body.classList.add("site-ready");
+                intro.style.animation =
+                    "intro-fade-out 0.4s ease forwards";
 
-            }, 300);
+                setTimeout(function() {
 
-        }, 2000);
+                    document.body.classList.add("site-enter");
+
+                }, 250);
+
+            }, remainingTime);
+
+        });
 
         
 
