@@ -19,6 +19,40 @@
     >
 
     <!-- =========================
+        PWA
+    ========================== -->
+
+    <link
+        rel="manifest"
+        href="manifest.webmanifest"
+    >
+
+    <meta
+        name="theme-color"
+        content="#000000"
+    >
+
+    <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black"
+    >
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="Guia FH"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="assets/icon-192.png"
+    >
+
+    <!-- =========================
          PRELOAD DAS IMAGENS
     ========================== -->
     <link
@@ -105,19 +139,21 @@
         .app {
             position: relative;
 
-            width: min(
-                100vw,
-                calc(100dvh * 9 / 16)
-            );
+            width: 100vw;
+            height: 100dvh;
 
-            aspect-ratio: 9 / 16;
-            max-height: 100dvh;
             overflow: hidden;
 
             background-image: url("assets/fundo.webp");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+        }
+
+        @media (min-width: 700px) {
+            .app {
+                max-width: 500px;
+            }
         }
 
         /* =========================
@@ -733,7 +769,7 @@
             Este é um site não oficial que eu fiz apenas para
             praticar programação, ele foi criado
             apenas para uso pessoal onde coloco minhas anotações pessoais
-            sobre For Honor, e compartilho elas com amigos, feito apenas para celular.
+            sobre For Honor, e compartilho elas com amigos, ele foi desenvolvido apenas para celular.
             Se você chegou aqui por acaso, apenas ignore.
             For Honor e suas propriedades pertecem a Ubisoft.
             Este site NÃO POSSUI vínculo oficial com a Ubisoft.
@@ -757,21 +793,10 @@
         const intro = document.getElementById("intro");
         const introButton = document.getElementById("introButton");
 
-        introButton.addEventListener("click", async function() {
-            const pagina = document.documentElement;
-
-            try {
-                if (pagina.requestFullscreen) {
-                    await pagina.requestFullscreen();
-                } else if (pagina.webkitRequestFullscreen) {
-                    pagina.webkitRequestFullscreen();
-                }
-            } catch (erro) {
-                /* Se o navegador não permitir tela cheia,
-                   o guia abre normalmente mesmo assim. */
-            }
+        introButton.addEventListener("click", function() {
 
             intro.classList.add("is-closing");
+
         });
 
         /* =========================
